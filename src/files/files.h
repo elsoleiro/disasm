@@ -6,5 +6,6 @@
 
 extern int getFileSize(FileObject *o);
 extern int getRowCount(FileObject *o);
+extern int getData(FileObject *o);
 
 #endif

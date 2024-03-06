@@ -20,12 +20,25 @@ int getRowCount(FileObject *o)
     {
 	if (c == '\n')
 	    rows++;
-
+	
 	buff = c;
     }
     if (buff != '\n')
 	rows += 1;
-
+    
+    rewind(o->fptr);
     o->rowCount = rows;
+    return 0;
+}
+
+int getData(FileObject *o)
+{
+    int c;
+    char **arr;
+    arr = (char **) malloc(o->rowCount * sizeof(char *));
+    while ((c = fgetc(o->fptr)) != EOF)
+    {
+	printf("%d", c);
+    }
     return 0;
 }

@@ -9,6 +9,7 @@ int main(int argc, char **argv)
 	fprintf(stderr, "%s", "incorrect number of arguments");
 	return -1;
     }
+    
     FileObject o;
     o.fileName = argv[1];
     o.fptr = fopen(o.fileName, "rb");
@@ -30,7 +31,4 @@ int main(int argc, char **argv)
 	fprintf(stderr, "%s", "row count 0");
 	return -1;
     }
-
-    printf("%d\n", o.rowCount);
-    printf("%d", o.fileSize);
 }

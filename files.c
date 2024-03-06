@@ -21,13 +21,13 @@ int getRowCount(FileObject *o)
     while ((c = fgetc(o->fptr)) != EOF)
     {
 	if (c == '\n')
-	    row++;
+	    rows++;
 
 	buff = c;
     }
     if (buff != '\n')
-	row += 1;
+	rows += 1;
 
-    o->rowCount = row;
+    o->rowCount = rows;
     return 0;
 }

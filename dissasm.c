@@ -13,7 +13,4 @@ int main(void)
 
     if (getRowCount(&o) != 0)
 	return -1;
-
-    printf("%d\n", o.rowCount);
-    printf("%d\n", o.fileSize);
 }

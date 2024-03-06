@@ -20,12 +20,16 @@ int main(int argc, char **argv)
     }
 
     if (getFileSize(&o) != 0)
+    {
 	fprintf(stderr, "%s", "file size 0");
 	return -1;
+    }
     
     if (getRowCount(&o) != 0)
+    {
 	fprintf(stderr, "%s", "row count 0");
 	return -1;
+    }
 
     printf("%d\n", o.rowCount);
     printf("%d", o.fileSize);

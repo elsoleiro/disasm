@@ -16,7 +16,7 @@ int getRowCount(FileObject *o)
 {
     int c;
     int buff = 0;
-    int row = 0;
+    int rows = 0;
     
     while ((c = fgetc(o->fptr)) != EOF)
     {

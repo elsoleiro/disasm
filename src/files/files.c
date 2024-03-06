@@ -4,8 +4,6 @@
 
 int getFileSize(FileObject *o)
 {
-    if (!o->fptr)
-	return -1;
     fseek(o->fptr, 0, SEEK_END);
     o->fileSize = ftell(o->fptr);
     rewind(o->fptr);

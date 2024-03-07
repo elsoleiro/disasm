@@ -1,4 +1,4 @@
-#include "fileobject.h"
+#include "file.h"
 #include "files.c"
 
 #ifndef FILE_FUNCTIONS

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "files/files.h"
+#include "instructions/instructions.h"
 
 int main(int argc, char **argv)
 {
@@ -31,4 +32,5 @@ int main(int argc, char **argv)
 	fprintf(stderr, "%s", "row count 0");
 	return -1;
     }
+
 }

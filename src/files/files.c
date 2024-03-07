@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "fileobject.h"
+#include "file.h"
 
 int getFileSize(FileObject *o)
 {

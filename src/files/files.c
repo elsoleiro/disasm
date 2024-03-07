@@ -33,12 +33,48 @@ int getRowCount(FileObject *o)
 
 int getData(FileObject *o)
 {
+    o->fileData = (char *) malloc(o->fileSize*sizeof(char));
+    if (o->fileData == NULL)
+	return -1;
+    
     int c;
-    char **arr;
-    arr = (char **) malloc(o->rowCount * sizeof(char *));
+    int i = 0;
+    
     while ((c = fgetc(o->fptr)) != EOF)
     {
-	printf("%d", c);
+	o->fileData[i] = (char) c;
+	i++;
     }
+    
+    return 0;
+}
+
+int getContents(FileObject *o)
+{
+    
+    if (o->fptr == NULL)
+    {
+	fprintf(stderr, "%s", "possible incorrect filename");
+	return -1;
+    }
+
+    if (getFileSize(o) != 0)
+    {
+	fprintf(stderr, "%s", "file size 0");
+	return -1;
+    }
+    
+    if (getRowCount(o) != 0)
+    {
+	fprintf(stderr, "%s", "row count 0");
+	return -1;
+    }
+
+    if (getData(o) != 0)
+    {
+	fprintf(stderr, "%s", "unable to assign memory at getData");
+	return -1;
+    }
+
     return 0;
 }

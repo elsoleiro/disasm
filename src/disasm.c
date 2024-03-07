@@ -14,23 +14,11 @@ int main(int argc, char **argv)
     FileObject o;
     o.fileName = argv[1];
     o.fptr = fopen(o.fileName, "rb");
-    
-    if (o.fptr == NULL)
-    {
-	fprintf(stderr, "%s", "possible incorrect filename");
-	return -1;
-    }
 
-    if (getFileSize(&o) != 0)
-    {
-	fprintf(stderr, "%s", "file size 0");
+    if (getContents(&o) != 0)
 	return -1;
-    }
-    
-    if (getRowCount(&o) != 0)
-    {
-	fprintf(stderr, "%s", "row count 0");
-	return -1;
-    }
 
+    free(o.fileData);
+    return 0;
 }
+    

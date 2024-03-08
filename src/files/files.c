@@ -7,6 +7,8 @@ int getFileSize(FileObject *o)
     fseek(o->fptr, 0, SEEK_END);
     o->fileSize = ftell(o->fptr);
     rewind(o->fptr);
+    if (o->fileSize == 0)
+	return -1;
     return 0;
 }
 
@@ -28,12 +30,14 @@ int getRowCount(FileObject *o)
     
     rewind(o->fptr);
     o->rowCount = rows;
+    if (o->rowCount == 0)
+	return -1;
     return 0;
 }
 
 int getData(FileObject *o)
 {
-    o->fileData = (char *) malloc(o->fileSize*sizeof(char));
+    o->fileData = (unsigned char *) malloc(o->fileSize*sizeof(unsigned char));
     if (o->fileData == NULL)
 	return -1;
     
@@ -42,7 +46,7 @@ int getData(FileObject *o)
     
     while ((c = fgetc(o->fptr)) != EOF)
     {
-	o->fileData[i] = (char) c;
+	o->fileData[i] = (unsigned char) c;
 	i++;
     }
     

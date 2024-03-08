@@ -6,7 +6,7 @@ typedef struct {
     FILE *fptr;
     int fileSize;
     int rowCount;
-    char *fileData;
+    unsigned char *fileData;
 } FileObject;
 
 #endif

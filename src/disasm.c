@@ -18,6 +18,10 @@ int main(int argc, char **argv)
     if (getContents(&o) != 0)
 	return -1;
 
+    Instruction inst = getInstruction(&o);
+
+    printf("%d", inst.opcode);
+
     free(o.fileData);
     return 0;
 }    

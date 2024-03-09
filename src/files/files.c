@@ -37,7 +37,8 @@ int getRowCount(FileObject *o)
 
 int getData(FileObject *o)
 {
-    o->fileData = (unsigned char *) malloc(o->fileSize*sizeof(unsigned char));
+    o->fileData = (unsigned char *) calloc(
+	o->fileSize, sizeof(unsigned char));
     if (o->fileData == NULL)
 	return -1;
     

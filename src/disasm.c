@@ -1,3 +1,8 @@
+/*
+             DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+	                   January 2024
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "files/files.h"

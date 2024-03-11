@@ -5,6 +5,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "files/files.h"
 #include "instructions/instructions.h"
 
@@ -25,6 +26,16 @@ int main(int argc, char **argv)
 
     Instruction inst = getInstruction(&o);
     free(o.fileData);
-    
-    return 0;
-}    
+
+    char *asmb = (char *) calloc(4, sizeof(char));
+    switch(inst.opcode)
+    {
+	case 34:
+	    strcpy(asmb, "mov");
+    }
+
+    char regs[2][8][3] = {
+	{"AL", "CL", "DL", "BL", "AH", "CH", "DH", "BH"},
+	{"AX", "CX", "DX", "BX", "SP", "BP", "SI", "DI"}
+    };
+}
